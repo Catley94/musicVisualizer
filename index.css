@@ -1,0 +1,60 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    background: black;  
+
+}
+
+body {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 2;
+    grid-template-areas: 
+    "canvas"
+    "buttons";
+}
+
+.p5Canvas {
+    position: relative;
+    grid-area: canvas;
+    justify-self: center;
+    padding: 2rem;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: 3;
+    grid-template-rows: 1;
+    grid-template-areas: 
+    "play pause stop";
+    position: relative;
+    grid-area: buttons;
+    justify-self: center;
+    padding: 2rem;
+    color: white;
+}
+
+.play {
+    grid-area: play;
+    color: white;
+    background: transparent;
+    margin-right: 50px;
+    cursor: pointer;
+}
+
+.pause {
+    grid-area: pause;
+    color: white;
+    background: transparent;
+    margin-right: 50px;
+    cursor: pointer;
+}
+
+.stop {
+    grid-area: stop;
+    color: white;
+    background: transparent;
+    margin-right: 50px;
+    cursor: pointer;
+}
