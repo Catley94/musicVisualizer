@@ -6,13 +6,13 @@ var numOfBands;
 
 
 function preload() {
-    song = loadSound('audio/bensound-summer.mp3')
+    song = loadSound('audio/bensound-dubstep.mp3')
     
 }
 
 function setup() {
     //create canvas
-    createCanvas(256, 256)
+    createCanvas(600, 600)
     colorMode(HSB)
     //anglemode is degrees as opposed to radians as default in canvas
     angleMode(DEGREES);
@@ -63,7 +63,7 @@ function draw() {
         // var angle = map(i, 0, 100, 0, 360);
         // console.log(amp)
         // var r = map(amp, 0, spectrum.length, 1, 200);
-        var r = map(amp, 0, spectrum.length, 10, 300);
+        var r = map(amp, 0, spectrum.length, 10, 600);
         var x = r * cos(angle) /2;
         var y = r * sin(angle) /2;
         
@@ -75,10 +75,10 @@ function draw() {
         //colour in star depending on levels
         rotate(i)
             if(fft.getEnergy('mid') > 140 && fft.getEnergy('bass') > 180) {
-                fill(i, 255, 255, 0.25)
+                fill(255, i, 255, 0.25)
             } else {
                 // fill(i, 255, 255, 0.1)
-                fill(i, 255, 255, 0.1)
+                fill(255, 255, i, 0.2)
             }
             // fill(255, 255, 255, 0.3)
             // rotate(50)
