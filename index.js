@@ -6,14 +6,14 @@ var numOfBands;
 
 
 function preload() {
-    song = loadSound('audio/bensound-dubstep.mp3')
+    song = loadSound('audio/museUprising.mp3')
     
 }
 
 function setup() {
     //create canvas
     createCanvas(600, 600)
-    colorMode(HSB)
+    colorMode(RGB, 25);
     //anglemode is degrees as opposed to radians as default in canvas
     angleMode(DEGREES);
     //create button to play/pause
@@ -74,7 +74,7 @@ function draw() {
         //comment out fill for dancing white star
         //colour in star depending on levels
         rotate(i)
-            if(fft.getEnergy('mid') > 140 && fft.getEnergy('bass') > 180) {
+            if(fft.getEnergy('mid') > 130 && fft.getEnergy('bass') > 180) {
                 fill(255, i, 255, 0.25)
             } else {
                 // fill(i, 255, 255, 0.1)
