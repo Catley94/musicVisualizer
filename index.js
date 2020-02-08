@@ -69,7 +69,7 @@ function draw() {
     let size = map(level, 0, 0.1, 0, 150);
     // console.log(size > 90)
     if(size > 95) {
-        console.log(size)
+        // console.log(size)
         circles.push(new Circle(0, 0, 2));
     }
     for(var i= 0; i<circles.length; i++){
