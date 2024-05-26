@@ -8,16 +8,17 @@ var circles = [];
 
 var audioFile = document.querySelector('.audioFile');
 
+var sizeOfVisualiser = 0.5;
 
 function preload() {
-    song = loadSound('audio/museUprising.mp3')
+    song = loadSound('audio/Eden (Original Mix).mp3')
     
 }
 
 function setup() {
     
     //create canvas
-    createCanvas(600, 600)
+    createCanvas(window.innerWidth * 0.8, window.innerHeight * 0.8)
     colorMode(RGB, 150);
     //anglemode is degrees as opposed to radians as default in canvas
     angleMode(DEGREES);
@@ -28,11 +29,10 @@ function setup() {
     //set volume of music to 0.1
     song.setVolume(0.1);
     //fft object, 0 smoothing, 256 freq bands 
-    numOfBands = 256;
+    numOfBands = 256; // 256
     fft = new p5.FFT(0.7, numOfBands);
-    ampVolume = new p5.Amplitude(0.9);
+    ampVolume = new p5.Amplitude(1);
     // w = width / numOfBands;
-    song.play();
 
 }
 //function to play/pause
@@ -63,10 +63,10 @@ function draw() {
     //stroke white
     // stroke(255)
     noStroke();
-    translate(width/2, height/2);
+    translate(width/2, height/2); //Set the position of the visualiser
     
     let level = ampVolume.getLevel();
-    let size = map(level, 0, 0.1, 0, 150);
+    let size = map(level, 0, 0.1, 0, 150); //150
     // console.log(size > 90)
     if(size > 95) {
         // console.log(size)
@@ -88,9 +88,9 @@ function draw() {
         //amp/vol variable for each individual band/freq
         var amp = spectrum[i];
         //Angle - changed from 200 to 100 for interesting effect
-        var angle = map(i, 0, spectrum.length, 0, 360);
+        var angle = map(i, 0, spectrum.length, 0, 360); //360 Radius
         // var angle = map(i, 0, 100, 0, 360);
-        var r = map(amp, 0, spectrum.length, 10, width/2);
+        var r = map(amp, 0, spectrum.length, 10, (width * 0.5) * sizeOfVisualiser); //Size of visualizer bars
         var x = r * sin(angle);
         var y = r * cos(angle);
         var x2 = r * cos(angle);
